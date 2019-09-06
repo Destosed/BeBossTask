@@ -67,38 +67,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="xsk-mP-AhS">
+                                <rect key="frame" x="10" y="84" width="394" height="39"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POR-jl-LTs">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="39"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-OG-3X2">
+                                        <rect key="frame" x="349" y="0.0" width="45" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="U8r-yf-Xug"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addCityButtonPressed:" destination="Sdw-zn-SRF" eventType="touchUpInside" id="sLh-Zk-aQO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aam-Mz-Ivi">
-                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
+                                <rect key="frame" x="10" y="133" width="394" height="45"/>
                                 <color key="backgroundColor" red="0.35930246110000003" green="0.66654473540000003" blue="0.90199124809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="yle-xu-wJQ"/>
+                                    <constraint firstAttribute="height" constant="45" id="yle-xu-wJQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Or find city by your GPS">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="findCityByGpsButtonPressed:" destination="Sdw-zn-SRF" eventType="touchUpInside" id="fxG-Td-YO2"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVI-gm-0tK" customClass="SearchTextField" customModule="SearchTextField">
-                                <rect key="frame" x="20" y="84" width="374" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="2gV-cw-nxF"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Fwe-dp-1Ng"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Fdh-dB-HLs" firstAttribute="trailing" secondItem="DVI-gm-0tK" secondAttribute="trailing" constant="20" id="7OE-xW-aNk"/>
-                            <constraint firstItem="Aam-Mz-Ivi" firstAttribute="trailing" secondItem="Fdh-dB-HLs" secondAttribute="trailing" id="9Po-LO-RDQ"/>
-                            <constraint firstItem="Aam-Mz-Ivi" firstAttribute="leading" secondItem="Fdh-dB-HLs" secondAttribute="leading" id="SM4-nv-Nqs"/>
-                            <constraint firstItem="DVI-gm-0tK" firstAttribute="leading" secondItem="Fdh-dB-HLs" secondAttribute="leading" constant="20" id="Sqm-8a-hC4"/>
-                            <constraint firstItem="Aam-Mz-Ivi" firstAttribute="bottom" secondItem="Fdh-dB-HLs" secondAttribute="bottom" id="aZr-ap-rI9"/>
-                            <constraint firstItem="DVI-gm-0tK" firstAttribute="top" secondItem="Fdh-dB-HLs" secondAttribute="top" constant="20" id="w2L-Pm-To0"/>
+                            <constraint firstItem="xsk-mP-AhS" firstAttribute="leading" secondItem="Fdh-dB-HLs" secondAttribute="leading" constant="10" id="7w5-oD-RkQ"/>
+                            <constraint firstItem="Fdh-dB-HLs" firstAttribute="trailing" secondItem="xsk-mP-AhS" secondAttribute="trailing" constant="10" id="8Gx-rI-48j"/>
+                            <constraint firstItem="Aam-Mz-Ivi" firstAttribute="top" secondItem="xsk-mP-AhS" secondAttribute="bottom" constant="10" id="AXR-QI-huF"/>
+                            <constraint firstItem="xsk-mP-AhS" firstAttribute="top" secondItem="Fdh-dB-HLs" secondAttribute="top" constant="20" id="VvE-N4-AcP"/>
+                            <constraint firstItem="Aam-Mz-Ivi" firstAttribute="leading" secondItem="Fdh-dB-HLs" secondAttribute="leading" constant="10" id="nPM-iR-jcY"/>
+                            <constraint firstItem="Fdh-dB-HLs" firstAttribute="trailing" secondItem="Aam-Mz-Ivi" secondAttribute="trailing" constant="10" id="zeo-9M-ymt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fdh-dB-HLs"/>
                     </view>
                     <connections>
-                        <outlet property="mySearchTextField" destination="DVI-gm-0tK" id="QYP-HG-WGk"/>
+                        <outlet property="addCityTextField" destination="POR-jl-LTs" id="Eln-Ig-Hwr"/>
+                        <outlet property="findCityByGpsButton" destination="Aam-Mz-Ivi" id="tGC-vE-Ue0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GC3-Tc-uh9" userLabel="First Responder" sceneMemberID="firstResponder"/>

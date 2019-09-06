@@ -3,21 +3,22 @@ import SearchTextField
 
 class AddCityViewController: UIViewController {
     
-    @IBOutlet weak var mySearchTextField: SearchTextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        findCityByGpsButton.layer.cornerRadius = findCityByGpsButton.frame.height / 4
+    }
 
-        setupSearchTextField()
+    //MARK: - Outlets
+    @IBOutlet weak var addCityTextField: UITextField!
+    @IBOutlet weak var findCityByGpsButton: UIButton!
+    
+    //MARK: - Actions
+    @IBAction func addCityButtonPressed(_ sender: Any) {
+        
+    }
+    @IBAction func findCityByGpsButtonPressed(_ sender: Any) {
+        
     }
     
-    func setupSearchTextField() {
-        
-        mySearchTextField.borderStyle = .roundedRect
-        mySearchTextField.clipsToBounds = true
-        
-        mySearchTextField.filterStrings(["Red", "Blue", "Yellow"])
-        
-    }
-
 }
