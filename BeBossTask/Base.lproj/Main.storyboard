@@ -44,7 +44,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cities" id="hz1-DE-Sa9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XRV-G2-YhV"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XRV-G2-YhV">
+                            <connections>
+                                <segue destination="Sdw-zn-SRF" kind="showDetail" id="nse-NO-J3g"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cityListTableView" destination="ph7-4N-aGz" id="u1s-Go-3Nv"/>

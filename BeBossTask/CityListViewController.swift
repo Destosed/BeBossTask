@@ -29,6 +29,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = cityListTableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CityTableViewCell
         cell.layer.cornerRadius = cell.frame.height / 10
         cell.clipsToBounds = true
+        cell.selectionStyle = .none
         
         return cell
         
@@ -44,12 +45,21 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         return 5.0
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+
     func setupTableView() {
         
         let nibCell = UINib(nibName: "CityTableViewCell", bundle: nil)
         self.cityListTableView.register(nibCell, forCellReuseIdentifier: "myCell")
         
         self.cityListTableView.tableFooterView = UIView(frame: .zero)
+        
+        cityListTableView.separatorColor = .white
         
     }
     
