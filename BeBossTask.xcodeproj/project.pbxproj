@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4202856423231152004C09DD /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202856223231152004C09DD /* City+CoreDataProperties.swift */; };
+		4202856523231152004C09DD /* City+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202856323231152004C09DD /* City+CoreDataClass.swift */; };
+		42028568232311BE004C09DD /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42028567232311BE004C09DD /* PersistenceService.swift */; };
+		4202856A232317CB004C09DD /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42028569232317CB004C09DD /* LocalDataManager.swift */; };
+		4202856C232317ED004C09DD /* RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202856B232317ED004C09DD /* RemoteDataManager.swift */; };
 		42AD6BDE23225F2B003F379C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6BDD23225F2B003F379C /* AppDelegate.swift */; };
 		42AD6BE023225F2B003F379C /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6BDF23225F2B003F379C /* CityListViewController.swift */; };
 		42AD6BE323225F2B003F379C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BE123225F2B003F379C /* Main.storyboard */; };
@@ -22,6 +27,11 @@
 /* Begin PBXFileReference section */
 		068C5715703ADD7442FF00E7 /* Pods-BeBossTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeBossTask.debug.xcconfig"; path = "Target Support Files/Pods-BeBossTask/Pods-BeBossTask.debug.xcconfig"; sourceTree = "<group>"; };
 		0C6894310FEFF381C0FC5502 /* Pods-BeBossTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeBossTask.release.xcconfig"; path = "Target Support Files/Pods-BeBossTask/Pods-BeBossTask.release.xcconfig"; sourceTree = "<group>"; };
+		4202856223231152004C09DD /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4202856323231152004C09DD /* City+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "City+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42028567232311BE004C09DD /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		42028569232317CB004C09DD /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
+		4202856B232317ED004C09DD /* RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManager.swift; sourceTree = "<group>"; };
 		42AD6BDA23225F2B003F379C /* BeBossTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeBossTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AD6BDD23225F2B003F379C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42AD6BDF23225F2B003F379C /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +58,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4202856123231142004C09DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4202856323231152004C09DD /* City+CoreDataClass.swift */,
+				4202856223231152004C09DD /* City+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4202856623231179004C09DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				42028567232311BE004C09DD /* PersistenceService.swift */,
+				42028569232317CB004C09DD /* LocalDataManager.swift */,
+				4202856B232317ED004C09DD /* RemoteDataManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		42AD6BD123225F2B003F379C = {
 			isa = PBXGroup;
 			children = (
@@ -70,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				42AD6BE123225F2B003F379C /* Main.storyboard */,
-				42E9164C2322C2D400A5A768 /* Controllers */,
+				4202856623231179004C09DD /* Common */,
+				4202856123231142004C09DD /* Models */,
 				42E9164D2322C30000A5A768 /* Views */,
+				42E9164C2322C2D400A5A768 /* Controllers */,
 				42AD6BDD23225F2B003F379C /* AppDelegate.swift */,
 				42AD6BE723225F2C003F379C /* Assets.xcassets */,
 				42AD6BE923225F2C003F379C /* LaunchScreen.storyboard */,
@@ -105,7 +136,6 @@
 				068C5715703ADD7442FF00E7 /* Pods-BeBossTask.debug.xcconfig */,
 				0C6894310FEFF381C0FC5502 /* Pods-BeBossTask.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -234,9 +264,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E9164B2322C1E500A5A768 /* AddCityViewController.swift in Sources */,
+				42028568232311BE004C09DD /* PersistenceService.swift in Sources */,
+				4202856A232317CB004C09DD /* LocalDataManager.swift in Sources */,
 				42AD6BE023225F2B003F379C /* CityListViewController.swift in Sources */,
 				42AD6BE623225F2B003F379C /* BeBossTask.xcdatamodeld in Sources */,
+				4202856C232317ED004C09DD /* RemoteDataManager.swift in Sources */,
 				42AD6BF4232265B5003F379C /* CityTableViewCell.swift in Sources */,
+				4202856423231152004C09DD /* City+CoreDataProperties.swift in Sources */,
+				4202856523231152004C09DD /* City+CoreDataClass.swift in Sources */,
 				42AD6BDE23225F2B003F379C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

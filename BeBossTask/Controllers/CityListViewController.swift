@@ -1,18 +1,23 @@
 import UIKit
+import CoreData
 
 class CityListViewController: UIViewController {
 
     @IBOutlet weak var cityListTableView: UITableView!
     
-    var citiesList: [String] = ["", ""]
+    var citiesList: [City] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         setupTableView()
         
+//        citiesList = RemoteDataManager.retrieveCities()
+        
+        citiesList = LocalDataManager.retrieveCities()
+        cityListTableView.reloadData()
     }
-
+    
     @IBAction func addCityButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "showAddCityVC", sender: self)
     }
@@ -35,6 +40,10 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.cornerRadius = cell.frame.height / 10
         cell.clipsToBounds = true
         cell.selectionStyle = .none
+        
+        if citiesList.count != 0 {
+            cell.setForCity(city: citiesList[indexPath.row])
+        }
         
         return cell
         
@@ -61,9 +70,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let nibCell = UINib(nibName: "CityTableViewCell", bundle: nil)
         self.cityListTableView.register(nibCell, forCellReuseIdentifier: "myCell")
-        
         self.cityListTableView.tableFooterView = UIView(frame: .zero)
-        
         cityListTableView.separatorColor = .white
         
     }

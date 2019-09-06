@@ -1,5 +1,4 @@
 import UIKit
-import SearchTextField
 
 class AddCityViewController: UIViewController {
     
