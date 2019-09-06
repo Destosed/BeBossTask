@@ -13,8 +13,13 @@ class CityListViewController: UIViewController {
         
     }
 
-
+    @IBAction func addCityButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showAddCityVC", sender: self)
+    }
+    
 }
+
+//MARK: - TableView extension
 
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -37,7 +42,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 275.0
+        return 248.0
         
     }
     

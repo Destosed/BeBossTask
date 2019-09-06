@@ -15,9 +15,13 @@
 		42AD6BEB23225F2C003F379C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BE923225F2C003F379C /* LaunchScreen.storyboard */; };
 		42AD6BF4232265B5003F379C /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6BF2232265B5003F379C /* CityTableViewCell.swift */; };
 		42AD6BF5232265B5003F379C /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BF3232265B5003F379C /* CityTableViewCell.xib */; };
+		42E9164B2322C1E500A5A768 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9164A2322C1E500A5A768 /* AddCityViewController.swift */; };
+		D9DA5932FCF4B269FC60B21D /* Pods_BeBossTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F233CC350E8F0DE9728DB6D /* Pods_BeBossTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		068C5715703ADD7442FF00E7 /* Pods-BeBossTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeBossTask.debug.xcconfig"; path = "Target Support Files/Pods-BeBossTask/Pods-BeBossTask.debug.xcconfig"; sourceTree = "<group>"; };
+		0C6894310FEFF381C0FC5502 /* Pods-BeBossTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeBossTask.release.xcconfig"; path = "Target Support Files/Pods-BeBossTask/Pods-BeBossTask.release.xcconfig"; sourceTree = "<group>"; };
 		42AD6BDA23225F2B003F379C /* BeBossTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeBossTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AD6BDD23225F2B003F379C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42AD6BDF23225F2B003F379C /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		42AD6BEC23225F2C003F379C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42AD6BF2232265B5003F379C /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		42AD6BF3232265B5003F379C /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
+		42E9164A2322C1E500A5A768 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		5F233CC350E8F0DE9728DB6D /* Pods_BeBossTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeBossTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DA5932FCF4B269FC60B21D /* Pods_BeBossTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				42AD6BDC23225F2B003F379C /* BeBossTask */,
 				42AD6BDB23225F2B003F379C /* Products */,
+				5AB29DBF11E13CE8F49A9317 /* Pods */,
+				F162ADF94AFE79A1300C0229 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,17 +69,52 @@
 		42AD6BDC23225F2B003F379C /* BeBossTask */ = {
 			isa = PBXGroup;
 			children = (
-				42AD6BDD23225F2B003F379C /* AppDelegate.swift */,
-				42AD6BDF23225F2B003F379C /* CityListViewController.swift */,
-				42AD6BF2232265B5003F379C /* CityTableViewCell.swift */,
-				42AD6BF3232265B5003F379C /* CityTableViewCell.xib */,
 				42AD6BE123225F2B003F379C /* Main.storyboard */,
+				42E9164C2322C2D400A5A768 /* Controllers */,
+				42E9164D2322C30000A5A768 /* Views */,
+				42AD6BDD23225F2B003F379C /* AppDelegate.swift */,
 				42AD6BE723225F2C003F379C /* Assets.xcassets */,
 				42AD6BE923225F2C003F379C /* LaunchScreen.storyboard */,
 				42AD6BEC23225F2C003F379C /* Info.plist */,
 				42AD6BE423225F2B003F379C /* BeBossTask.xcdatamodeld */,
 			);
 			path = BeBossTask;
+			sourceTree = "<group>";
+		};
+		42E9164C2322C2D400A5A768 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42AD6BDF23225F2B003F379C /* CityListViewController.swift */,
+				42E9164A2322C1E500A5A768 /* AddCityViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		42E9164D2322C30000A5A768 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42AD6BF2232265B5003F379C /* CityTableViewCell.swift */,
+				42AD6BF3232265B5003F379C /* CityTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5AB29DBF11E13CE8F49A9317 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				068C5715703ADD7442FF00E7 /* Pods-BeBossTask.debug.xcconfig */,
+				0C6894310FEFF381C0FC5502 /* Pods-BeBossTask.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F162ADF94AFE79A1300C0229 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F233CC350E8F0DE9728DB6D /* Pods_BeBossTask.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42AD6BEF23225F2C003F379C /* Build configuration list for PBXNativeTarget "BeBossTask" */;
 			buildPhases = (
+				94F56645746DE4B5DFAF1DF6 /* [CP] Check Pods Manifest.lock */,
 				42AD6BD623225F2B003F379C /* Sources */,
 				42AD6BD723225F2B003F379C /* Frameworks */,
 				42AD6BD823225F2B003F379C /* Resources */,
+				EA07C9991384A4729D8A0251 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,11 +186,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		94F56645746DE4B5DFAF1DF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeBossTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA07C9991384A4729D8A0251 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeBossTask/Pods-BeBossTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeBossTask/Pods-BeBossTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeBossTask/Pods-BeBossTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		42AD6BD623225F2B003F379C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E9164B2322C1E500A5A768 /* AddCityViewController.swift in Sources */,
 				42AD6BE023225F2B003F379C /* CityListViewController.swift in Sources */,
 				42AD6BE623225F2B003F379C /* BeBossTask.xcdatamodeld in Sources */,
 				42AD6BF4232265B5003F379C /* CityTableViewCell.swift in Sources */,
@@ -292,6 +381,7 @@
 		};
 		42AD6BF023225F2C003F379C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 068C5715703ADD7442FF00E7 /* Pods-BeBossTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +400,7 @@
 		};
 		42AD6BF123225F2C003F379C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C6894310FEFF381C0FC5502 /* Pods-BeBossTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

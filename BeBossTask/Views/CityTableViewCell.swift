@@ -7,7 +7,7 @@ class CityTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        mainView.layer.cornerRadius = mainView.frame.height / 6
+        mainView.layer.cornerRadius = mainView.frame.height / 10
         mainView.clipsToBounds = true
         
     }
