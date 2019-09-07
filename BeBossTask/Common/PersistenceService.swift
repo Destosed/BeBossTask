@@ -35,7 +35,7 @@ class PersistenceService {
 
     static func clearContext() {
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "City")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {

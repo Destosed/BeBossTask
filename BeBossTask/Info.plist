@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Enable GPS to detect your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Enable GPS to detect your location</string>
 </dict>
 </plist>

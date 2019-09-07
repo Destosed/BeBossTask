@@ -7,15 +7,21 @@ class CityListViewController: UIViewController {
     
     var citiesList: [City] = []
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupTableView()
+        setupRefresher()
         
-//        citiesList = RemoteDataManager.retrieveCities()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         citiesList = LocalDataManager.retrieveCities()
         cityListTableView.reloadData()
+        
     }
     
     @IBAction func addCityButtonPressed(_ sender: UIBarButtonItem) {
@@ -24,9 +30,38 @@ class CityListViewController: UIViewController {
     
 }
 
+extension CityListViewController {
+    
+    func setupRefresher() {
+    
+        if #available(iOS 10.0, *) {
+            cityListTableView.refreshControl = refreshControl
+        } else {
+            cityListTableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+    }
+    
+    @objc private func refreshData() {
+        LocalDataManager.updateLocalDataManagerInfo(for: self.citiesList)
+        self.cityListTableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
+    
+}
+
 //MARK: - TableView extension
 
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            PersistenceService.context.delete(citiesList[indexPath.row])
+            citiesList.remove(at: indexPath.row)
+            self.cityListTableView.reloadData()
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

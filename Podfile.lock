@@ -1,16 +1,20 @@
 PODS:
-  - SearchTextField (1.2.4)
+  - Alamofire (4.7.3)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - SearchTextField
+  - Alamofire (~> 4.7.2)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - SearchTextField
+    - Alamofire
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: f0daa1659b414587b230ad3594b493450ec703ec
+PODFILE CHECKSUM: 0cd35ef14e8954bd5db0a274118abf786a0ab7bb
 
 COCOAPODS: 1.7.3

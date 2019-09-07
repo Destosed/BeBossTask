@@ -21,11 +21,19 @@ class CityTableViewCell: UITableViewCell {
     func setForCity(city: City) {
         
         cityNameLabel.text = city.name
-        cityTemperatureLabel.text = String(city.temp)
+        cityTemperatureLabel.text = String("\(city.temp)°")
         cityWindSpeedLabel.text = String("\(city.windSpeed) m/h")
-        cityWindDirectionLabel.text = String("\(city.windDirection)°")
         cityImageImage.image = UIImage(named: city.whetherImage!)
+        
+        let windDirectionInDegrees = city.windDirection
+        let windDirection = convertDegreesToDirection(for: Double(windDirectionInDegrees))
+        cityWindDirectionLabel.text = String("\(windDirection)")
         
     }
     
+    func convertDegreesToDirection(for degrees: Double) -> String {
+        let directions = ["North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"]
+        let index = Int((degrees + 22.5) / 45.0) & 7
+        return directions[index]
+    }
 }

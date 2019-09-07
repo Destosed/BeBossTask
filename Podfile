@@ -5,6 +5,7 @@ target 'BeBossTask' do
 
   use_frameworks!
   
-  pod "SearchTextField"
+  pod 'Alamofire', '~> 4.7.2'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end

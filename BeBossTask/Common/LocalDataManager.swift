@@ -17,9 +17,15 @@ class LocalDataManager {
         
     }
     
-    static func saveCities(cities: [City]) {
+    //Retrieves cities and adds them to the Local Data Manager
+    static func updateLocalDataManagerInfo(for cities: [City]) {
         
-        PersistenceService.saveContext()
+        PersistenceService.clearContext()
+        
+        for city in cities {
+            RemoteDataManager.retrieveCity(cityName: city.name!)
+        }
         
     }
+    
 }
