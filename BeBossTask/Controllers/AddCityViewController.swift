@@ -38,6 +38,12 @@ extension AddCityViewController: CLLocationManagerDelegate {
     
     func findCityByGps() {
         
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        guard authorizationStatus == .authorizedWhenInUse else {
+            presentAuthorizationProblemAlert()
+            return
+        }
+        
         locationManager.requestWhenInUseAuthorization()
         guard CLLocationManager.locationServicesEnabled() else { return }
         locationManager.delegate = self
@@ -50,6 +56,13 @@ extension AddCityViewController: CLLocationManagerDelegate {
         
         RemoteDataManager.retrieveCity(latitude: latitude!, longitude: longitude!)
         
+    }
+    
+    func presentAuthorizationProblemAlert() {
+        let errorAllert = UIAlertController(title: "Location disables", message: "Please, check authorization status in settings", preferredStyle: .alert)
+        let okErrorAlert = UIAlertAction(title: "OK", style: .default, handler: nil)
+        errorAllert.addAction(okErrorAlert)
+        present(errorAllert, animated: true, completion: nil)
     }
     
 }

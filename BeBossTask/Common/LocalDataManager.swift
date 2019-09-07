@@ -28,4 +28,16 @@ class LocalDataManager {
         
     }
     
+    static func isCityAllreadyAdded(cityName: String) -> Bool {
+        
+        let cities = self.retrieveCities()
+        
+        for city in cities {
+            if city.name == cityName { return true }
+        }
+        
+        return false
+        
+    }
+    
 }

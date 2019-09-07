@@ -41,6 +41,11 @@ class RemoteDataManager {
             let windDirection = dictJSON["wind"]!["deg"].int16Value
             let wheatherImage = dictJSON["weather"]![0]["icon"].stringValue
             
+            if LocalDataManager.isCityAllreadyAdded(cityName: name) {
+                //City allready added
+                return
+            }
+            
             let cityToReturn = City(context: PersistenceService.context)
             cityToReturn.name = name
             cityToReturn.temp = temp
@@ -52,4 +57,5 @@ class RemoteDataManager {
         }
         
     }
+    
 }
