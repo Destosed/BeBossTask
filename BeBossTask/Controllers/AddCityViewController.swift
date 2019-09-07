@@ -60,8 +60,17 @@ extension AddCityViewController: CLLocationManagerDelegate {
     
     func presentAuthorizationProblemAlert() {
         let errorAllert = UIAlertController(title: "Location disables", message: "Please, check authorization status in settings", preferredStyle: .alert)
-        let okErrorAlert = UIAlertAction(title: "OK", style: .default, handler: nil)
-        errorAllert.addAction(okErrorAlert)
+
+        let openSettingsAction = UIAlertAction(title: "Settings", style: .default) { (UIAlertAction) in
+            // Open the settings of your app
+            if let url = NSURL(string:UIApplication.openSettingsURLString) {
+                UIApplication.shared.openURL(url as URL)
+            }
+        }
+        let cancelActon = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        errorAllert.addAction(openSettingsAction)
+        errorAllert.addAction(cancelActon)
         present(errorAllert, animated: true, completion: nil)
     }
     

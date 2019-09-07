@@ -22,7 +22,7 @@ class CityTableViewCell: UITableViewCell {
         
         cityNameLabel.text = city.name
         cityTemperatureLabel.text = String("\(city.temp)°")
-        cityWindSpeedLabel.text = String("\(city.windSpeed) m/h")
+        cityWindSpeedLabel.text = String("\(city.windSpeed) m/s")
         cityImageImage.image = UIImage(named: city.whetherImage!)
         
         let windDirectionInDegrees = city.windDirection
