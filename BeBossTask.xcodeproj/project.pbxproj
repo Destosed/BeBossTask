@@ -16,11 +16,11 @@
 		42AD6BE023225F2B003F379C /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6BDF23225F2B003F379C /* CityListViewController.swift */; };
 		42AD6BE323225F2B003F379C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BE123225F2B003F379C /* Main.storyboard */; };
 		42AD6BE623225F2B003F379C /* BeBossTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6BE423225F2B003F379C /* BeBossTask.xcdatamodeld */; };
-		42AD6BE823225F2C003F379C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BE723225F2C003F379C /* Assets.xcassets */; };
 		42AD6BEB23225F2C003F379C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BE923225F2C003F379C /* LaunchScreen.storyboard */; };
 		42AD6BF4232265B5003F379C /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6BF2232265B5003F379C /* CityTableViewCell.swift */; };
 		42AD6BF5232265B5003F379C /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42AD6BF3232265B5003F379C /* CityTableViewCell.xib */; };
 		42E9164B2322C1E500A5A768 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9164A2322C1E500A5A768 /* AddCityViewController.swift */; };
+		42F5A3AE23243CF60097E4ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F5A3AD23243CF60097E4ED /* Images.xcassets */; };
 		D9DA5932FCF4B269FC60B21D /* Pods_BeBossTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F233CC350E8F0DE9728DB6D /* Pods_BeBossTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,12 +37,12 @@
 		42AD6BDF23225F2B003F379C /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		42AD6BE223225F2B003F379C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42AD6BE523225F2B003F379C /* BeBossTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BeBossTask.xcdatamodel; sourceTree = "<group>"; };
-		42AD6BE723225F2C003F379C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42AD6BEA23225F2C003F379C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42AD6BEC23225F2C003F379C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42AD6BF2232265B5003F379C /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		42AD6BF3232265B5003F379C /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		42E9164A2322C1E500A5A768 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		42F5A3AD23243CF60097E4ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5F233CC350E8F0DE9728DB6D /* Pods_BeBossTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeBossTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,9 +104,9 @@
 				42E9164D2322C30000A5A768 /* Views */,
 				42E9164C2322C2D400A5A768 /* Controllers */,
 				42AD6BDD23225F2B003F379C /* AppDelegate.swift */,
-				42AD6BE723225F2C003F379C /* Assets.xcassets */,
 				42AD6BE923225F2C003F379C /* LaunchScreen.storyboard */,
 				42AD6BEC23225F2C003F379C /* Info.plist */,
+				42F5A3AD23243CF60097E4ED /* Images.xcassets */,
 				42AD6BE423225F2B003F379C /* BeBossTask.xcdatamodeld */,
 			);
 			path = BeBossTask;
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42AD6BEB23225F2C003F379C /* LaunchScreen.storyboard in Resources */,
-				42AD6BE823225F2C003F379C /* Assets.xcassets in Resources */,
+				42F5A3AE23243CF60097E4ED /* Images.xcassets in Resources */,
 				42AD6BF5232265B5003F379C /* CityTableViewCell.xib in Resources */,
 				42AD6BE323225F2B003F379C /* Main.storyboard in Resources */,
 			);

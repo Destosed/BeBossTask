@@ -20,14 +20,17 @@ class AddCityViewController: UIViewController {
     //MARK: - Actions
     @IBAction func addCityButtonPressed(_ sender: Any) {
         
-        RemoteDataManager.retrieveCity(cityName: addCityTextField.text!)
-        //navigationController?.popViewController(animated: true)
+        var cityName = addCityTextField.text!
+        guard cityName != "" else {
+            return
+        }
+        cityName = cityName.trimmingCharacters(in: .whitespaces) // Clearing extra spaces
         
+        RemoteDataManager.retrieveCity(cityName: cityName)
     }
+    
     @IBAction func findCityByGpsButtonPressed(_ sender: Any) {
-
         self.findCityByGps()
-        navigationController?.popViewController(animated: true)
     }
     
 }

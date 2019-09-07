@@ -33,6 +33,7 @@ class RemoteDataManager {
         Alamofire.request(requestUrl).responseJSON { (response) in
             
             guard let data = response.result.value else {
+                presentConnectionProblemsAlert()
                 return
             }
             let dictJSON = JSON(data).dictionaryValue
@@ -81,6 +82,15 @@ class RemoteDataManager {
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         incorrectCityAllert.addAction(okAction)
         UIApplication.shared.keyWindow?.rootViewController?.present(incorrectCityAllert, animated: true, completion: nil)
+        
+    }
+    
+    private static func presentConnectionProblemsAlert() {
+        
+        let connectionProblemsAlert = UIAlertController(title: "Network problems", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        connectionProblemsAlert.addAction(okAction)
+        UIApplication.shared.keyWindow?.rootViewController?.present(connectionProblemsAlert, animated: true, completion: nil)
         
     }
     
