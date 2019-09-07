@@ -21,7 +21,7 @@ class AddCityViewController: UIViewController {
     @IBAction func addCityButtonPressed(_ sender: Any) {
         
         RemoteDataManager.retrieveCity(cityName: addCityTextField.text!)
-        navigationController?.popViewController(animated: true)
+        //navigationController?.popViewController(animated: true)
         
     }
     @IBAction func findCityByGpsButtonPressed(_ sender: Any) {
@@ -31,6 +31,8 @@ class AddCityViewController: UIViewController {
     }
     
 }
+
+//MARK: - CLLocation
 
 extension AddCityViewController: CLLocationManagerDelegate {
     
@@ -74,4 +76,18 @@ extension AddCityViewController: CLLocationManagerDelegate {
         present(errorAllert, animated: true, completion: nil)
     }
     
+}
+
+//MARK: - textField delegates
+
+extension AddCityViewController: UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addCityTextField.resignFirstResponder()
+        return true
+    }
 }

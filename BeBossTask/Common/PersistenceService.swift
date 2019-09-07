@@ -41,7 +41,7 @@ class PersistenceService {
         do {
             try context.execute(deleteRequest)
         } catch let error as NSError {
-            // TODO: handle the error
+            print(error.localizedDescription)
         }
         
     }

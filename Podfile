@@ -7,5 +7,6 @@ target 'BeBossTask' do
   
   pod 'Alamofire', '~> 4.7.2'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'PKHUD', '~> 5.0'
 
 end

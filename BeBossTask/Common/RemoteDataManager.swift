@@ -1,6 +1,8 @@
 import Foundation
+import UIKit
 import Alamofire
 import SwiftyJSON
+import PKHUD
 
 class RemoteDataManager {
     
@@ -8,7 +10,6 @@ class RemoteDataManager {
     private static let openWeatherMapAPIKey = "0c4c3e3f13b8fab197f68e3b5df8707c"
     
     static func retrieveCity(cityName: String) {
-        
         
         let stringUrl = "\(openWeatherMapBaseURL)?APPID=\(openWeatherMapAPIKey)&q=\(cityName)"
         let requestUrl = URL(string: stringUrl)!
@@ -35,14 +36,17 @@ class RemoteDataManager {
                 return
             }
             let dictJSON = JSON(data).dictionaryValue
-            let name = dictJSON["name"]!.stringValue
+            guard let name = dictJSON["name"]?.stringValue else {
+                presentIncorrectCityAllert()
+                return
+            }
             let temp = dictJSON["main"]!["temp"].int16Value - 273 //Temperature in celsius
             let windSpeed = dictJSON["wind"]!["speed"].int16Value
             let windDirection = dictJSON["wind"]!["deg"].int16Value
             let wheatherImage = dictJSON["weather"]![0]["icon"].stringValue
             
             if LocalDataManager.isCityAllreadyAdded(cityName: name) {
-                //City allready added
+                presentCityAllreadyAddedAlert()
                 return
             }
             
@@ -54,7 +58,29 @@ class RemoteDataManager {
             cityToReturn.whetherImage = wheatherImage
             PersistenceService.saveContext()
             
+            HUD.flash(.success, delay: 1.5)
+            
         }
+        
+    }
+    
+    //MARK: - AlertControllers
+    
+    private static func presentCityAllreadyAddedAlert() {
+        
+        let cityAllreadyAddedAlert = UIAlertController(title: "Error", message: "City allready added", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        cityAllreadyAddedAlert.addAction(okAction)
+        UIApplication.shared.keyWindow?.rootViewController?.present(cityAllreadyAddedAlert, animated: true, completion: nil)
+        
+    }
+    
+    private static func presentIncorrectCityAllert() {
+        
+        let incorrectCityAllert = UIAlertController(title: "Error", message: "Incorrect city", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        incorrectCityAllert.addAction(okAction)
+        UIApplication.shared.keyWindow?.rootViewController?.present(incorrectCityAllert, animated: true, completion: nil)
         
     }
     

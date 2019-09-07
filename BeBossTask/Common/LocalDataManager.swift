@@ -11,7 +11,7 @@ class LocalDataManager {
             let fetchReq: NSFetchRequest<City> = City.fetchRequest()
             citiesList = try PersistenceService.context.fetch(fetchReq)
         } catch {
-            //Error handling
+            print(error.localizedDescription)
         }
         return citiesList
         

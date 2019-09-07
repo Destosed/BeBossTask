@@ -67,19 +67,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="xsk-mP-AhS">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xsk-mP-AhS">
                                 <rect key="frame" x="10" y="84" width="394" height="39"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POR-jl-LTs">
-                                        <rect key="frame" x="0.0" y="0.0" width="330" height="39"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="39"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-OG-3X2">
-                                        <rect key="frame" x="349" y="0.0" width="45" height="39"/>
+                                        <rect key="frame" x="344" y="0.0" width="50" height="39"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="U8r-yf-Xug"/>
+                                            <constraint firstAttribute="width" constant="50" id="U8r-yf-Xug"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Add"/>
