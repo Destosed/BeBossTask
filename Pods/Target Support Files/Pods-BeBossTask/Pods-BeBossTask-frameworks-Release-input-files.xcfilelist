@@ -1,4 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-BeBossTask/Pods-BeBossTask-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

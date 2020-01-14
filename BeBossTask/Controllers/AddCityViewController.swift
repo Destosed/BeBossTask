@@ -3,6 +3,7 @@ import MapKit
 
 class AddCityViewController: UIViewController {
     
+    weak var cityListDelegate: CityListDelegate!
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -26,13 +27,20 @@ class AddCityViewController: UIViewController {
         }
         cityName = cityName.trimmingCharacters(in: .whitespaces) // Clearing extra spaces
         
-        RemoteDataManager.retrieveCity(cityName: cityName)
+        RemoteDataManager.shared.retrieveCity(cityName: cityName) { city in
+            
+            if let city = city {
+                self.cityListDelegate.addCity(city: city)
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                AlertService.presentInfoAlert(on: self, message: "Couldn't retrieve city")
+            }
+        }
     }
     
     @IBAction func findCityByGpsButtonPressed(_ sender: Any) {
         self.findCityByGps()
     }
-    
 }
 
 //MARK: - CLLocation
@@ -40,12 +48,11 @@ class AddCityViewController: UIViewController {
 extension AddCityViewController: CLLocationManagerDelegate {
     
     //Doesn't work in simulator
-    
     func findCityByGps() {
         
         let authorizationStatus = CLLocationManager.authorizationStatus()
         guard authorizationStatus == .authorizedWhenInUse else {
-            presentAuthorizationProblemAlert()
+            AlertService.presentAuthorizationProblemAlert(on: self)
             return
         }
         
@@ -55,30 +62,23 @@ extension AddCityViewController: CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.startUpdatingLocation()
         
-        let coordinates = locationManager.location?.coordinate
-        let latitude = coordinates?.latitude
-        let longitude = coordinates?.longitude
+        guard let coordinates = locationManager.location?.coordinate else {
+            
+            //TODO: Handle Error
+            return
+        }
+        let latitude = coordinates.latitude
+        let longitude = coordinates.longitude
         
-        RemoteDataManager.retrieveCity(latitude: latitude!, longitude: longitude!)
-        
-    }
-    
-    func presentAuthorizationProblemAlert() {
-        let errorAllert = UIAlertController(title: "Location disables", message: "Please, check authorization status in settings", preferredStyle: .alert)
-
-        let openSettingsAction = UIAlertAction(title: "Settings", style: .default) { (UIAlertAction) in
-            // Open the settings of your app
-            if let url = NSURL(string:UIApplication.openSettingsURLString) {
-                UIApplication.shared.openURL(url as URL)
+        RemoteDataManager.shared.retrieveCity(latitude: latitude, longitude: longitude) { city in
+            if let city = city {
+                self.cityListDelegate.addCity(city: city)
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                AlertService.presentInfoAlert(on: self, message: "Couldn't retrieve city")
             }
         }
-        let cancelActon = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        errorAllert.addAction(openSettingsAction)
-        errorAllert.addAction(cancelActon)
-        present(errorAllert, animated: true, completion: nil)
     }
-    
 }
 
 //MARK: - textField delegates

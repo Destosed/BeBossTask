@@ -2,53 +2,59 @@ import UIKit
 import CoreData
 
 class CityListViewController: UIViewController {
-
+    
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var cityListTableView: UITableView!
+    
+    //MARK: - Properties
     
     var citiesList: [City] = []
     
-    private let refreshControl = UIRefreshControl()
+    let label = UILabel()
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        setupTableView()
-        setupRefresher()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        citiesList = LocalDataManager.retrieveCities()
-        cityListTableView.reloadData()
-        
-    }
+    //MARK: - IBActions
     
     @IBAction func addCityButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "showAddCityVC", sender: self)
-    }
-    
-}
-
-extension CityListViewController {
-    
-    func setupRefresher() {
-    
-        if #available(iOS 10.0, *) {
-            cityListTableView.refreshControl = refreshControl
-        } else {
-            cityListTableView.addSubview(refreshControl)
-        }
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addCityVC = storyboard.instantiateViewController(withIdentifier: "AddCityViewController") as! AddCityViewController
+        addCityVC.cityListDelegate = self
+        navigationController?.pushViewController(addCityVC, animated: true)
     }
     
-    @objc private func refreshData() {
-        LocalDataManager.updateLocalDataManagerInfo(for: self.citiesList)
-        self.cityListTableView.reloadData()
-        self.refreshControl.endRefreshing()
+    //MARK: - Life Circle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if !citiesList.isEmpty {
+            label.removeFromSuperview()
+        } else {
+            setupTextLabel()
+        }
+        cityListTableView.reloadData()
+    }
+    
+    //MARK: - Helpers
+    
+    func setupTextLabel() {
+        
+        self.view.addSubview(label)
+        
+        label.text = "Press plus button to add the city"
+        label.font = UIFont (name: "HelveticaNeue-UltraLight", size: 25)
+        label.textAlignment = .center
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
 }
 
 //MARK: - TableView extension
@@ -57,16 +63,14 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            PersistenceService.context.delete(citiesList[indexPath.row])
             citiesList.remove(at: indexPath.row)
-            self.cityListTableView.reloadData()
+            cityListTableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return citiesList.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,8 +111,17 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         self.cityListTableView.register(nibCell, forCellReuseIdentifier: "myCell")
         self.cityListTableView.tableFooterView = UIView(frame: .zero)
         cityListTableView.separatorColor = .white
-        
     }
-    
 }
 
+extension CityListViewController: CityListDelegate {
+    
+    func addCity(city: City) {
+        
+        if citiesList.contains(where: { $0.name == city.name }) {
+            AlertService.presentInfoAlert(on: self, message: "City allready added")
+        } else {
+            self.citiesList.append(city)
+        }
+    }
+}
